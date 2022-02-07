@@ -1,0 +1,23 @@
+metadata:
+  name: send_speed
+  labels:
+    nuclio.io/project-name: 7e2b7348-baaa-4373-a9ce-c04943d8fab6
+spec:
+  description: "Function that generate an event on the AMQP queue sending a temperature value."
+  handler: "main:handler"
+  runtime: nodejs
+  resources: {}
+  image: "nuclio/processor-send_speed:latest"
+  minReplicas: 1
+  maxReplicas: 1
+  targetCPU: 75
+  build:
+    functionSourceCode: dmFyIG1xdHQgPSByZXF1aXJlKCdtcXR0JyksIHVybCA9IHJlcXVpcmUoJ3VybCcpOwoKdmFyIG1xdHRfdXJsID0gdXJsLnBhcnNlKHByb2Nlc3MuZW52LkNMT1VEQU1RUF9NUVRUX1VSTCB8fCAnbXF0dDovL2d1ZXN0Omd1ZXN0QDE5Mi4xNjguMTM3LjE6MTg4MycpOwp2YXIgYXV0aCA9IChtcXR0X3VybC5hdXRoIHx8ICc6Jykuc3BsaXQoJzonKTsKdmFyIHVybCA9ICJtcXR0Oi8vIiArIG1xdHRfdXJsLmhvc3Q7Cgp2YXIgb3B0aW9ucyA9IHsKICBwb3J0OiBtcXR0X3VybC5wb3J0LAogIGNsaWVudElkOiAnbXF0dGpzXycgKyBNYXRoLnJhbmRvbSgpLnRvU3RyaW5nKDE2KS5zdWJzdHIoMiwgOCksCiAgdXNlcm5hbWU6IGF1dGhbMF0sCiAgcGFzc3dvcmQ6IGF1dGhbMV0sCn07CgpleHBvcnRzLmhhbmRsZXIgPSBmdW5jdGlvbihjb250ZXh0LCBldmVudCkgewogICAgdmFyIGNsaWVudCA9IG1xdHQuY29ubmVjdCh1cmwsIG9wdGlvbnMpOyAKCiAgICBjbGllbnQub24oJ2Nvbm5lY3QnLCBmdW5jdGlvbigpIHsKICAgICAgICBwZXJjZW50YWdlID0gKE1hdGguZmxvb3IoTWF0aC5yYW5kb20oKSo5OSkpLnRvU3RyaW5nKCk7CiAgICAgICAgc3BlZWQgPSAoTWF0aC5mbG9vcihNYXRoLnJhbmRvbSgpKjEzMCkpLnRvU3RyaW5nKCk7CiAgICAgICAgY2xpZW50LnB1Ymxpc2goJ2lvdC9zZW5zb3JzL3NwZWVkJywgcGVyY2VudGFnZSsiICIrIHNwZWVkLCBmdW5jdGlvbigpIHsKICAgICAgICAgICAgY2xpZW50LmVuZCgpOyAKICAgICAgICAgICAgY29udGV4dC5jYWxsYmFjaygnTVFUVCBNZXNzYWdlIFNlbnQgJyk7IAogICAgICAgIH0pOyAgICAgICAgICAgIAogICAgfSk7ICAgICAgICAKfTs=
+    commands:
+      - 'npm install amqplib'
+      - 'npm install mqtt'
+    runtimeAttributes:
+      repositories: []
+    codeEntryType: sourceCode
+  platform: {}
+  version: 1
