@@ -3,7 +3,7 @@ University project for Serverless course
 
 Did you know that the weight of the wind turbines alone reaches 500t? Think what would happen if these broke off due to the strong wind and fell on houses or roads. Fortunately, the wind turbines are equipped with braking systems ready to activate and avoid such disasters. 
 
-In this IoT project, a sensor will detect wind speed values and brake wear percentage and send them to a queue of the RabbitMQ message broker. Then the consumer reads the messages, and determines whether the wind speed is high enough to activate the brakes and whether maintenance is required due to wear. Then send a message to 2 different queues: one where is a listening a BrakeSystem which will activate or deactivate the brake of wind turbines, and another to a NotificationSystem that the which will notify the user if maintenance is required.
+In this IoT project, a sensor will detect wind speed values and brake wear percentage and send them to a queue of the RabbitMQ message broker. Then the consumer reads the messages, and determines whether the wind speed is high enough to activate the brakes and whether maintenance is required due to wear. Then send a message to 2 different queues: one where is a listening a BrakeSystem which will activate or deactivate the brake of wind turbines, and another to a NotificationSystem which will notify the user if maintenance is required.
 
 <p align="center"><img src="/Assets/ArchitectureWindBrakeSystem.png" width="900"/></p>
 
