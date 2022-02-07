@@ -1,0 +1,34 @@
+metadata:
+  name: brake
+  labels:
+    nuclio.io/project-name: 7e2b7348-baaa-4373-a9ce-c04943d8fab6
+spec:
+  handler: "main:handler"
+  runtime: nodejs
+  resources: {}
+  image: "nuclio/processor-brake:latest"
+  minReplicas: 1
+  maxReplicas: 1
+  triggers:
+    TriggerFan:
+      class: ""
+      kind: mqtt
+      url: "guest:guest@192.168.137.1:1883"
+      attributes:
+        subscriptions:
+          - qos: 0
+            topic: iot/actuator/brake
+    default-http:
+      class: ""
+      kind: http
+      maxWorkers: 1
+  build:
+    functionSourceCode: dmFyIGFtcXAgPSByZXF1aXJlKCdhbXFwbGliJyk7CiAgICAgICAgdmFyIEZVTkNUSU9OX05BTUUgPSAiYnJha2UiOwogICAgICAgIAogICAgICAgIGZ1bmN0aW9uIHNlbmRfZmVlZGJhY2sobXNnKXsKICAgICAgICAgICAgdmFyIHEgPSAnaW90L2xvZ3MyJzsKICAgICAgICAgICAgYW1xcC5jb25uZWN0KCdhbXFwOi8vZ3Vlc3Q6Z3Vlc3RAMTkyLjE2OC4xMzcuMTo1NjcyJykudGhlbihmdW5jdGlvbihjb25uKSB7CiAgICAgICAgICAgICAgICByZXR1cm4gY29ubi5jcmVhdGVDaGFubmVsKCkudGhlbihmdW5jdGlvbihjaCkgewogICAgICAgICAgICAgICAgICAgIHZhciBvayA9IGNoLmFzc2VydFF1ZXVlKHEsIHtkdXJhYmxlOiBmYWxzZX0pOwogICAgICAgICAgICAgICAgICAgIHJldHVybiBvay50aGVuKGZ1bmN0aW9uKF9xb2spIHsKICAgICAgICAgICAgICAgICAgICBjaC5zZW5kVG9RdWV1ZShxLCBCdWZmZXIuZnJvbShtc2cpKTsKICAgICAgICAgICAgICAgICAgICBjb25zb2xlLmxvZygiIFt4XSBTZW50ICclcyciLCBtc2cpOwogICAgICAgICAgICAgICAgICAgIHJldHVybiBjaC5jbG9zZSgpOwogICAgICAgICAgICAgICAgICAgIH0pOwogICAgICAgICAgICAgICAgfSkuZmluYWxseShmdW5jdGlvbigpIHsgCiAgICAgICAgICAgICAgICAgICAgICAgIGNvbm4uY2xvc2UoKTsKICAgICAgICAgICAgICAgICAgICB9KTsKICAgICAgICAgICAgfSkuY2F0Y2goY29uc29sZS53YXJuKTsKICAgICAgICB9CgogICAgICAgIC8vY29udmVydCBmcm9tIGJpbmFyeSB0byBzdHJpbmcsIGNhbiBiZSB1c2VmdWxsCiAgICAgICAgZnVuY3Rpb24gYmluMnN0cmluZyhhcnJheSl7CiAgICAgICAgICB2YXIgcmVzdWx0ID0gIiI7CiAgICAgICAgICBmb3IodmFyIGkgPSAwOyBpIDwgYXJyYXkubGVuZ3RoOyArK2kpewogICAgICAgICAgICByZXN1bHQrPSAoU3RyaW5nLmZyb21DaGFyQ29kZShhcnJheVtpXSkpOwogICAgICAgICAgfQogICAgICAgICAgcmV0dXJuIHJlc3VsdDsKICAgICAgICB9CgogICAgICAgIGV4cG9ydHMuaGFuZGxlciA9IGZ1bmN0aW9uKGNvbnRleHQsIGV2ZW50KSB7CiAgICAgICAgICAgIHZhciBfZXZlbnQgPSBKU09OLnBhcnNlKEpTT04uc3RyaW5naWZ5KGV2ZW50KSk7CiAgICAgICAgICAgIHZhciBfZGF0YSA9IGJpbjJzdHJpbmcoX2V2ZW50LmJvZHkuZGF0YSk7CgogICAgICAgICAgICBjb250ZXh0LmNhbGxiYWNrKCdNUVRUIE1lc3NhZ2UgU2VudCAnICsgX2RhdGEgKTsKCiAgICAgICAgICAgIHNlbmRfZmVlZGJhY2soIkludm9rZWQgRnVuY3Rpb24gIitGVU5DVElPTl9OQU1FKyIgb24gIitfZGF0YSk7CiAgICAgICAgfTs=
+    commands:
+      - 'npm install amqplib'
+      - 'npm install mqtt'
+    runtimeAttributes:
+      repositories: []
+    codeEntryType: sourceCode
+  platform: {}
+  version: 1
